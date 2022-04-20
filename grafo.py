@@ -11,7 +11,7 @@ G.add_edges_from([('São Sebastião do Umbuzeiro' , 'Zabelê')
 , ('Ouro Velho', 'Prata'), ('Prata', 'Monteiro')]) 
 #Monteiro para Recife
 G.add_edges_from([("Congo", "Jataúba"), ('Jataúba', 'Toritama')
-, ('Toritama','Caruaru'), ('Caruaru', 'Recife')])
+                  , ('Toritama','Caruaru'), ('Caruaru', 'Recife'), ('Igarassu', 'Recife')])
 #Monteiro para Recife, indo por JP
 G.add_edges_from([('Sumé','São José do Cariri'), ('São José do Cariri', 'Campina Grande')
 , ('Campina Grande','João Pessoa'), ('João Pessoa','Goiania'),('Goiania', 'Igarassu'), ('Igarassu','Recife')])
@@ -32,7 +32,7 @@ val_map = { 'João Pessoa': 0.9525525,
 values = [val_map.get(node, 0.25) for node in G.nodes()]
 
 red_edges = [('Monteiro', 'Sertânia'), ('São José do Egito','Ouro Velho'), ('Jataúba','Toritama')
-,('Toritama','Caruaru'),('Caruaru', 'Recife')]
+             ,('Toritama','Caruaru'),('Caruaru', 'Recife'), ('Igarassu', 'Recife')]
 edge_colors = ['black' if not edge in red_edges else 'red' for edge in G.edges()]
 pos=nx.spring_layout(G)
 nx.draw(G,pos, node_color = values, node_size=900,edge_color=edge_colors,edge_cmap=plt.cm.Reds)
